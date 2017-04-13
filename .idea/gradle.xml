@@ -9,7 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/recycler-view-margin" />
+            <option value="$PROJECT_DIR$/recycler-view-margin-decoration" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
