@@ -9,7 +9,7 @@ A library for add margin each item in RecyclerView.
 ## 「 Installation 」
 
 Maven
-```
+```xml
 <dependency>
   <groupId>com.github.thekhaeng</groupId>
   <artifactId>recycler-view-margin-decoration</artifactId>
@@ -19,7 +19,7 @@ Maven
 ```
 
 Gradle
-```
+```gradle
 compile ('com.github.thekhaeng:recycler-view-margin-decoration:1.0.0') {
     exclude group: 'com.android.support', module: 'recyclerview-v7'
 }
@@ -28,7 +28,7 @@ compile ('com.github.thekhaeng:recycler-view-margin-decoration:1.0.0') {
 ## 「 Usage 」
 
 ### For LinearLayoutManager
-```
+```java
 recyclerView.addItemDecoration( new LinearLayoutMargin( spaceInPx ) );
 
 or
@@ -37,7 +37,7 @@ recyclerView.addItemDecoration( new DefaultLayoutMargin( 1, spaceInPx, true ) );
 ```
 
 ### For GridLayoutManager
-```
+```java
 recyclerView.addItemDecoration( new GridLayoutMargin( yourSpan, spaceInPx ) );
 
 or
@@ -46,7 +46,7 @@ recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx, tr
 ```
 
 ### For StaggeredGridLayoutManager
-```
+```java
 recyclerView.addItemDecoration( new StaggeredGridLayoutMargin( yourSpan, spaceInPx ) );
 
 or
