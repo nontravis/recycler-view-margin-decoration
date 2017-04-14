@@ -1,1 +1,1 @@
-include ':app', ':recycler-view-margin-decoration'
+include ':app', ':recycler-margin'

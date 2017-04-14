@@ -20,7 +20,7 @@ Maven
 
 Gradle
 ```gradle
-compile ('com.github.thekhaeng:recycler-view-margin-decoration:1.0.0') {
+compile ('com.github.thekhaeng:recycler-margin:1.0.0') {
     exclude group: 'com.android.support', module: 'recyclerview-v7'
 }
 ```

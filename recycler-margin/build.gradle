@@ -1,11 +1,11 @@
 apply plugin: 'com.android.library'
 ext {
     bintrayRepo = 'TheKhaeng'
-    bintrayName = 'recycler-view-margin-decoration'
+    bintrayName = 'recycler-margin'
 
     publishedGroupId = 'com.github.thekhaeng'
     libraryName = 'RecyclerViewMarginDecoration'
-    artifact = 'recycler-view-margin-decoration'
+    artifact = 'recycler-margin'
 
     libraryDescription = 'A library for add margin each item in RecyclerView.'
 

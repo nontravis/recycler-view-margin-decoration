@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/RecyclerViewMarginDecorator.iml" filepath="$PROJECT_DIR$/RecyclerViewMarginDecorator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/recycler-view-margin-decoration/recycler-view-margin-decoration.iml" filepath="$PROJECT_DIR$/recycler-view-margin-decoration/recycler-view-margin-decoration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/recycler-margin/recycler-margin.iml" filepath="$PROJECT_DIR$/recycler-margin/recycler-margin.iml" />
     </modules>
   </component>
 </project>
