@@ -30,7 +30,7 @@ public class StaggeredGridLayoutMargin extends RecyclerView.ItemDecoration{
             int spanCurrent = lp.getSpanIndex();
             marginDelegate.calculateMargin( outRect, position, spanCurrent );
         }else{
-            throw new IllegalArgumentException( "Parent is not StaggeredGridLayoutManager." );
+            throw new RuntimeException( "Parent view is not StaggeredGridLayoutManager." );
         }
 
     }

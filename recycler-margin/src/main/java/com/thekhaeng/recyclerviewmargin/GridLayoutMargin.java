@@ -30,7 +30,7 @@ public class GridLayoutMargin extends RecyclerView.ItemDecoration{
             int spanCurrent = lp.getSpanIndex();
             marginDelegate.calculateMargin( outRect, position, spanCurrent );
         }else{
-            throw new IllegalArgumentException( "Parent is not GridLayoutManager." );
+            throw new RuntimeException( "Parent view is not GridLayoutManager." );
         }
 
     }

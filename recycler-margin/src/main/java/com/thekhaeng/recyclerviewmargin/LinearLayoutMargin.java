@@ -26,7 +26,7 @@ public class LinearLayoutMargin extends RecyclerView.ItemDecoration{
             int spanCurrent = 0;
             marginDelegate.calculateMargin( outRect, position, spanCurrent );
         }else{
-            throw new IllegalArgumentException("Parent is not LinearLayoutManager.");
+            throw new RuntimeException("Parent view is not LinearLayoutManager.");
         }
     }
 }
