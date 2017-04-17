@@ -65,7 +65,7 @@ public class MarginFragment extends Fragment{
 //                rvMargin.addItemDecoration( new DefaultLayoutMargin( gridSpan, itemSpace, true ) );
                 break;
             case STAGGERED_GRID:
-                int stagSpan = 2;
+                int stagSpan = 3;
                 rvMargin.setLayoutManager( new StaggeredGridLayoutManager( stagSpan, StaggeredGridLayoutManager.VERTICAL ) );
                 rvMargin.addItemDecoration( new StaggeredGridLayoutMargin( stagSpan, itemSpace ) );
 //                rvMargin.addItemDecoration( new DefaultLayoutMargin( stagSpan, itemSpace, true ) );
