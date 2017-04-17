@@ -12,7 +12,7 @@ Maven
 ```xml
 <dependency>
   <groupId>com.github.thekhaeng</groupId>
-  <artifactId>recycler-view-margin-decoration</artifactId>
+  <artifactId>recycler-margin</artifactId>
   <version>1.0.0</version>
   <type>pom</type>
 </dependency>
