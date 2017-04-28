@@ -21,17 +21,16 @@ import static com.thekhaeng.recyclerviewmargindecoration.MainActivity.PagerState
 public class MarginFragment extends Fragment{
     private final static String TAG = MarginFragment.class.getSimpleName();
     public static final String BUNDLE_SAVE_DATA = "bundle_save_data";
+
     public static final String KEY_LAYOUT = "key_layout";
+    public static final String KEY_TOP_MARGIN = "key_top_margin";
+    public static final String KEY_START_MARGIN = "key_start_margin";
+    public static final String KEY_END_MARGIN = "key_end_margin";
+    public static final String KEY_BOTTOM_MARGIN = "key_bottom_margin";
 
-    public MarginFragment(){
-        super();
-    }
-
-    public static MarginFragment newInstance( int layout ){
+    public static MarginFragment newInstance( Bundle bundle ){
         MarginFragment fragment = new MarginFragment();
-        Bundle args = new Bundle();
-        args.putInt( KEY_LAYOUT, layout );
-        fragment.setArguments( args );
+        fragment.setArguments( bundle );
         return fragment;
     }
 
