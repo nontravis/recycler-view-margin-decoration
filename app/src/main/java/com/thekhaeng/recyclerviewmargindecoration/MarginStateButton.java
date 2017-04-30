@@ -6,7 +6,6 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.support.annotation.DimenRes;
 import android.support.annotation.NonNull;
-import android.support.annotation.Px;
 import android.support.annotation.StringRes;
 import android.support.v7.widget.AppCompatButton;
 import android.util.AttributeSet;
@@ -21,6 +20,7 @@ public class MarginStateButton extends AppCompatButton{
     public static final int BOTTOM = 3;
 
     private int[] margins = new int[]{
+            R.dimen.margin_no,
             R.dimen.margin_small,
             R.dimen.margin,
             R.dimen.margin_large,
@@ -33,6 +33,7 @@ public class MarginStateButton extends AppCompatButton{
             R.string.button_bottom
     };
     private int[] dpStrings = new int[]{
+            R.string.button_0_DP,
             R.string.button_4_DP,
             R.string.button_8_DP,
             R.string.button_16_DP,
@@ -40,8 +41,13 @@ public class MarginStateButton extends AppCompatButton{
     };
 
     private float margin;
-    private int currentIndex = 1;
+    private int currentIndex = 2;
     private int position;
+    private OnClickMarginStateButtonListener listener;
+
+    public interface OnClickMarginStateButtonListener{
+        void onClick();
+    }
 
     public MarginStateButton( Context context ){
         super( context );
@@ -82,6 +88,10 @@ public class MarginStateButton extends AppCompatButton{
         this.currentIndex = ss.currentIndex;
         this.margin = ss.margin;
         init();
+    }
+
+    public void setOnClickMarginStateButtonListener( OnClickMarginStateButtonListener listener){
+        this.listener = listener;
     }
 
 
@@ -129,6 +139,9 @@ public class MarginStateButton extends AppCompatButton{
                 currentIndex = ( ++currentIndex ) % margins.length;
                 setText( positionStrings[position], dpStrings[currentIndex] );
                 margin = getMargin( margins[currentIndex] );
+                if( listener != null ){
+                    listener.onClick();
+                }
             }
         };
     }

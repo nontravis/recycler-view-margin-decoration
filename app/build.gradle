@@ -31,6 +31,9 @@ dependencies {
     compile('com.github.thekhaeng:material-design-guideline:1.0.0') {
         exclude group: 'com.android.support', module: 'support-annotations'
     }
+    compile 'com.hwangjr.rxbus:rxbus:1.0.5'
     testCompile 'junit:junit:4.12'
     compile project(path: ':recycler-margin')
+
+//    compile 'com.github.thekhaeng:recycler-margin:1.0.1'
 }

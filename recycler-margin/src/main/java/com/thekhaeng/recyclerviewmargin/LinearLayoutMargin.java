@@ -10,23 +10,37 @@ import android.view.View;
  * Created by thekhaeng on 4/6/2017 AD.
  */
 
-public class LinearLayoutMargin extends RecyclerView.ItemDecoration{
+public class LinearLayoutMargin extends BaseLayoutMargin{
 
-    private final MarginDelegate marginDelegate;
 
-    public LinearLayoutMargin(@Px int spacing ){
-        this.marginDelegate = new MarginDelegate( 1, spacing, true );
+    public LinearLayoutMargin( @Px int spacing ){
+        super( 1, spacing );
     }
 
     @Override
-    public void getItemOffsets( Rect outRect, View view, RecyclerView parent, RecyclerView.State state ){
-        if (parent.getLayoutManager() instanceof LinearLayoutManager ){
+    public void setMargin( @Px int margin ){
+        super.setMargin( margin );
+    }
+
+    @Override
+    public void setMargin( @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
+        super.setMargin( marginTop, marginBottom, marginLeft, marginRight );
+    }
+
+    @Override
+    public void setOnClickLayoutMarginItemListener( OnClickLayoutMarginItemListener listener ){
+        super.setOnClickLayoutMarginItemListener( listener );
+    }
+
+    @Override
+    public void getItemOffsets( Rect outRect, View view, final RecyclerView parent, RecyclerView.State state ){
+        if( parent.getLayoutManager() instanceof LinearLayoutManager ){
             int position = parent.getChildAdapterPosition( view ); // item position
-            int spanCount = 1;
             int spanCurrent = 0;
-            marginDelegate.calculateMargin( outRect, position, spanCurrent );
+            setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
+            calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
         }else{
-            throw new RuntimeException("Parent view is not LinearLayoutManager.");
+            throw new RuntimeException( "Parent view is not LinearLayoutManager." );
         }
     }
 }

@@ -10,16 +10,26 @@ import android.view.View;
  * Created by thekhaeng on 4/6/2017 AD.
  */
 
-public class GridLayoutMargin extends RecyclerView.ItemDecoration{
+public class GridLayoutMargin extends BaseLayoutMargin{
 
-    private final MarginDelegate marginDelegate;
 
     public GridLayoutMargin( int spanCount, @Px int spacing ){
-        this( spanCount, spacing, true );
+        super( spanCount, spacing );
     }
 
-    public GridLayoutMargin( int spanCount, @Px int spacing, boolean includeEdge ){
-        this.marginDelegate = new MarginDelegate( spanCount, spacing, includeEdge );
+    @Override
+    public void setMargin( @Px int margin ){
+        super.setMargin( margin );
+    }
+
+    @Override
+    public void setMargin( @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
+        super.setMargin( marginTop, marginBottom, marginLeft, marginRight );
+    }
+
+    @Override
+    public void setOnClickLayoutMarginItemListener( OnClickLayoutMarginItemListener listener ){
+        super.setOnClickLayoutMarginItemListener( listener );
     }
 
     @Override
@@ -28,7 +38,8 @@ public class GridLayoutMargin extends RecyclerView.ItemDecoration{
             GridLayoutManager.LayoutParams lp = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             int position = parent.getChildAdapterPosition( view );
             int spanCurrent = lp.getSpanIndex();
-            marginDelegate.calculateMargin( outRect, position, spanCurrent );
+            setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
+            calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
         }else{
             throw new RuntimeException( "Parent view is not GridLayoutManager." );
         }

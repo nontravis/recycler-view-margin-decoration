@@ -6,6 +6,7 @@
     <string name="button_end">END</string>
     <string name="button_bottom">BOTTOM</string>
 
+    <string name="button_0_DP">0 DP</string>
     <string name="button_4_DP">4 DP</string>
     <string name="button_8_DP">8 DP</string>
     <string name="button_16_DP">16 DP</string>

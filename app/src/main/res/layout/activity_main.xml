@@ -80,13 +80,13 @@
         </LinearLayout>
 
 
-        <Button
-            android:id="@+id/btn_refresh"
+        <com.thekhaeng.recyclerviewmargindecoration.MarginStateButton
+            android:id="@+id/btn_space"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/button_margin"
             android:layout_weight="1"
-            android:text="refresh"/>
+            android:text="top 16 dp"/>
 
     </LinearLayout>
 

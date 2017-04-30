@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,12 +67,6 @@ public class MarginAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         public MarginHolder( final View itemView ){
             super( itemView );
             this.background = itemView.findViewById( R.id.background );
-            itemView.setOnClickListener( new View.OnClickListener(){
-                @Override
-                public void onClick( View v ){
-                    Toast.makeText( itemView.getContext(), "item: " + getAdapterPosition(), Toast.LENGTH_SHORT ).show();
-                }
-            } );
         }
     }
 }

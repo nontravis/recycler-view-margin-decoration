@@ -3,6 +3,7 @@
     <dimen name="button_height">42dp</dimen>
     <dimen name="button_margin">4dp</dimen>
 
+    <dimen name="margin_no">0dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin">8dp</dimen>
     <dimen name="margin_large">16dp</dimen>
