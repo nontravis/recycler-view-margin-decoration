@@ -1,6 +1,8 @@
 package com.thekhaeng.recyclerviewmargindecoration;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,30 +17,33 @@ import java.util.List;
 public class MarginAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
 
     List<MarginItem> items;
+    private Context context;
 
-    public MarginAdapter(){
+    public MarginAdapter( Context context ){
+        this.context = context;
         items = new ArrayList<>();
-        items.add( new MarginItem( 600 ) );
-        items.add( new MarginItem( 200 ) );
-        items.add( new MarginItem( 300 ) );
-        items.add( new MarginItem( 300 ) );
-        items.add( new MarginItem( 400 ) );
-        items.add( new MarginItem( 100 ) );
-        items.add( new MarginItem( 700 ) );
-        items.add( new MarginItem( 200 ) );
-        items.add( new MarginItem( 500 ) );
-        items.add( new MarginItem( 600 ) );
-        items.add( new MarginItem( 300 ) );
-        items.add( new MarginItem( 400 ) );
-        items.add( new MarginItem( 800 ) );
-        items.add( new MarginItem( 100 ) );
-        items.add( new MarginItem( 500 ) );
-        items.add( new MarginItem( 200 ) );
-        items.add( new MarginItem( 500 ) );
-        items.add( new MarginItem( 300 ) );
-        items.add( new MarginItem( 700 ) );
-        items.add( new MarginItem( 200 ) );
+        items.add( new MarginItem( dpToPx( 200 ) ) );
+        items.add( new MarginItem( dpToPx( 100 ) ) );
+        items.add( new MarginItem( dpToPx( 150 ) ) );
+        items.add( new MarginItem( dpToPx( 150 ) ) );
+        items.add( new MarginItem( dpToPx( 200 ) ) );
+        items.add( new MarginItem( dpToPx( 50 ) ) );
+        items.add( new MarginItem( dpToPx( 250 ) ) );
+        items.add( new MarginItem( dpToPx( 100 ) ) );
+        items.add( new MarginItem( dpToPx( 250 ) ) );
+        items.add( new MarginItem( dpToPx( 200 ) ) );
+        items.add( new MarginItem( dpToPx( 150 ) ) );
+        items.add( new MarginItem( dpToPx( 200 ) ) );
+        items.add( new MarginItem( dpToPx( 400 ) ) );
+        items.add( new MarginItem( dpToPx( 50 ) ) );
+        items.add( new MarginItem( dpToPx( 250 ) ) );
+        items.add( new MarginItem( dpToPx( 100 ) ) );
+        items.add( new MarginItem( dpToPx( 250 ) ) );
+        items.add( new MarginItem( dpToPx( 150 ) ) );
+        items.add( new MarginItem( dpToPx( 350 ) ) );
+        items.add( new MarginItem( dpToPx( 100 ) ) );
     }
+
 
     @Override
     public int getItemCount(){
@@ -60,11 +65,17 @@ public class MarginAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>
         marginHolder.background.setLayoutParams( layoutParams );
     }
 
-    public static class MarginHolder extends RecyclerView.ViewHolder{
+
+    private int dpToPx( int dp ){
+        DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
+        return Math.round( dp * ( displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT ) );
+    }
+
+    class MarginHolder extends RecyclerView.ViewHolder{
 
         View background;
 
-        public MarginHolder( final View itemView ){
+        MarginHolder( final View itemView ){
             super( itemView );
             this.background = itemView.findViewById( R.id.background );
         }

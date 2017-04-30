@@ -18,13 +18,13 @@ public class StaggeredGridLayoutMargin extends BaseLayoutMargin{
     }
 
     @Override
-    public void setMargin( @Px int margin ){
-        super.setMargin( margin );
+    public void setPadding( RecyclerView rv, @Px int margin ){
+        super.setPadding( rv, margin );
     }
 
     @Override
-    public void setMargin( @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
-        super.setMargin( marginTop, marginBottom, marginLeft, marginRight );
+    public void setPadding( RecyclerView rv, @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
+        super.setPadding( rv, marginTop, marginBottom, marginLeft, marginRight );
     }
 
     @Override
@@ -35,6 +35,7 @@ public class StaggeredGridLayoutMargin extends BaseLayoutMargin{
     @Override
     public void getItemOffsets( Rect outRect, View view, final RecyclerView parent, RecyclerView.State state ){
         if( parent.getLayoutManager() instanceof StaggeredGridLayoutManager ){
+            super.getItemOffsets( outRect, view, parent, state );
             StaggeredGridLayoutManager.LayoutParams lp = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
             int position = parent.getChildAdapterPosition( view );
             final int spanCurrent = lp.getSpanIndex();

@@ -7,6 +7,8 @@ import android.support.annotation.Px;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import static android.view.View.SCROLLBARS_OUTSIDE_OVERLAY;
+
 /**
  * Created by thekhaeng on 4/30/2017 AD.
  */
@@ -17,6 +19,10 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
     private final int spanCount;
     private final int spacing;
     private OnClickLayoutMarginItemListener listener;
+    private int marginTop = 0;
+    private int marginBottom = 0;
+    private int marginLeft = 0;
+    private int marginRight = 0;
 
 
     BaseLayoutMargin( int spanCount, @Px int spacing ){
@@ -29,15 +35,18 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
         this.listener = listener;
     }
 
-    void setMargin( @Px int margin ){
-        this.setMargin( margin, margin, margin, margin );
+    void setPadding( RecyclerView rv, @Px int margin ){
+        this.setPadding(rv, margin, margin, margin, margin );
     }
 
-    void setMargin( @Px int marginTop,
-                    @Px int marginBottom,
-                    @Px int marginLeft,
-                    @Px int marginRight ){
-        this.marginDelegate.setMargin( marginTop, marginBottom, marginLeft, marginRight );
+    void setPadding( RecyclerView rv,
+                     @Px int marginTop,
+                     @Px int marginBottom,
+                     @Px int marginLeft,
+                     @Px int marginRight ){
+        rv.setClipToPadding( false );
+        rv.setScrollBarStyle( SCROLLBARS_OUTSIDE_OVERLAY );
+        rv.setPadding( marginLeft, marginTop, marginRight, marginBottom );
     }
 
     MarginDelegate getMarginDelegate(){
@@ -62,7 +71,7 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
                                      int spanCurrent,
                                      RecyclerView.State state ){
         if( listener != null )
-            view.setOnClickListener( onClickItem(context, view, position, spanCurrent, state ) );
+            view.setOnClickListener( onClickItem( context, view, position, spanCurrent, state ) );
     }
 
     @NonNull
@@ -70,9 +79,19 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
         return new View.OnClickListener(){
             @Override
             public void onClick( View v ){
-                if( listener != null ) listener.onClick(context, view, position, currentSpan, state );
+                if( listener != null )
+                    listener.onClick( context, view, position, currentSpan, state );
             }
         };
+    }
+
+    @Override
+    public void getItemOffsets( Rect outRect, View view, RecyclerView parent, RecyclerView.State state ){
+        super.getItemOffsets( outRect, view, parent, state );
+    }
+
+    private boolean isMargin(){
+        return marginTop != 0 || marginBottom != 0 || marginLeft != 0 || marginRight != 0;
     }
 
 }

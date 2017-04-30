@@ -18,13 +18,13 @@ public class GridLayoutMargin extends BaseLayoutMargin{
     }
 
     @Override
-    public void setMargin( @Px int margin ){
-        super.setMargin( margin );
+    public void setPadding( RecyclerView rv, @Px int margin ){
+        super.setPadding(rv, margin );
     }
 
     @Override
-    public void setMargin( @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
-        super.setMargin( marginTop, marginBottom, marginLeft, marginRight );
+    public void setPadding( RecyclerView rv, @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
+        super.setPadding(rv, marginTop, marginBottom, marginLeft, marginRight );
     }
 
     @Override
@@ -35,11 +35,12 @@ public class GridLayoutMargin extends BaseLayoutMargin{
     @Override
     public void getItemOffsets( Rect outRect, View view, RecyclerView parent, RecyclerView.State state ){
         if( parent.getLayoutManager() instanceof GridLayoutManager ){
+            super.getItemOffsets( outRect, view, parent, state );
             GridLayoutManager.LayoutParams lp = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             int position = parent.getChildAdapterPosition( view );
             int spanCurrent = lp.getSpanIndex();
-            setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
             calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
+            setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
         }else{
             throw new RuntimeException( "Parent view is not GridLayoutManager." );
         }

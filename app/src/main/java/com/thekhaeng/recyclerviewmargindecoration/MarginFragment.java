@@ -36,6 +36,7 @@ public class MarginFragment extends Fragment{
     private LinearLayoutMargin linearMargin;
     private GridLayoutMargin gridMargin;
     private StaggeredGridLayoutMargin stagMargin;
+    private RecyclerView rvMargin;
 
     public static MarginFragment newInstance( Bundle bundle ){
         MarginFragment fragment = new MarginFragment();
@@ -65,43 +66,43 @@ public class MarginFragment extends Fragment{
 
     @SuppressWarnings( "UnusedParameters" )
     private void initInstance( View rootView ){
-        RecyclerView rvMargin = (RecyclerView) rootView.findViewById( R.id.rv_margin );
+        rvMargin = (RecyclerView) rootView.findViewById( R.id.rv_margin );
         int itemSpace = getSpace();
         int layout = getArguments().getInt( KEY_LAYOUT );
         if( layout == LINEAR ){
             rvMargin.removeItemDecoration( linearMargin );
             rvMargin.setLayoutManager( new LinearLayoutManager( getContext() ) );
             linearMargin = new LinearLayoutMargin( itemSpace );
-            linearMargin.setMargin( getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            linearMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             linearMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( linearMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( 1, itemSpace );
-//            linearMargin.setMargin( itemSpace );
+//            linearMargin.setPadding( itemSpace );
 //            rvMargin.addItemDecoration( linearMargin );
         }else if( layout == GRID ){
             int gridSpan = 3;
             rvMargin.removeItemDecoration( gridMargin );
             rvMargin.setLayoutManager( new GridLayoutManager( getContext(), gridSpan ) );
             gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
-            gridMargin.setMargin( getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            gridMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             gridMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( gridMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( gridSpan, itemSpace );
-//            linearMargin.setMargin( itemSpace );
+//            linearMargin.setPadding( itemSpace );
 //            rvMargin.addItemDecoration( linearMargin );
         }else if( layout == STAGGERED_GRID ){
             int stagSpan = 3;
             rvMargin.removeItemDecoration( stagMargin );
             rvMargin.setLayoutManager( new StaggeredGridLayoutManager( stagSpan, StaggeredGridLayoutManager.VERTICAL ) );
             stagMargin = new StaggeredGridLayoutMargin( stagSpan, itemSpace );
-            stagMargin.setMargin( getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            stagMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             stagMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( stagMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( stagSpan, itemSpace );
-//            linearMargin.setMargin( itemSpace );
+//            linearMargin.setPadding( itemSpace );
 //            rvMargin.addItemDecoration( linearMargin );
         }
-        rvMargin.setAdapter( new MarginAdapter() );
+        rvMargin.setAdapter( new MarginAdapter( getContext() ) );
     }
 
     public int getSpace(){
