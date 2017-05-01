@@ -19,11 +19,6 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
     private final int spanCount;
     private final int spacing;
     private OnClickLayoutMarginItemListener listener;
-    private int marginTop = 0;
-    private int marginBottom = 0;
-    private int marginLeft = 0;
-    private int marginRight = 0;
-
 
     BaseLayoutMargin( int spanCount, @Px int spacing ){
         this.spanCount = spanCount;
@@ -40,13 +35,13 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
     }
 
     void setPadding( RecyclerView rv,
-                     @Px int marginTop,
-                     @Px int marginBottom,
-                     @Px int marginLeft,
-                     @Px int marginRight ){
+                     @Px int top,
+                     @Px int bottom,
+                     @Px int left,
+                     @Px int right ){
         rv.setClipToPadding( false );
         rv.setScrollBarStyle( SCROLLBARS_OUTSIDE_OVERLAY );
-        rv.setPadding( marginLeft, marginTop, marginRight, marginBottom );
+        rv.setPadding( left, top, right, bottom );
     }
 
     MarginDelegate getMarginDelegate(){
@@ -88,10 +83,6 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
     @Override
     public void getItemOffsets( Rect outRect, View view, RecyclerView parent, RecyclerView.State state ){
         super.getItemOffsets( outRect, view, parent, state );
-    }
-
-    private boolean isMargin(){
-        return marginTop != 0 || marginBottom != 0 || marginLeft != 0 || marginRight != 0;
     }
 
 }

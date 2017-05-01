@@ -18,13 +18,13 @@ public class LinearLayoutMargin extends BaseLayoutMargin{
     }
 
     @Override
-    public void setPadding( RecyclerView rv, @Px int margin ){
-        super.setPadding(rv, margin );
+    public void setPadding( RecyclerView rv, @Px int padding ){
+        super.setPadding(rv, padding );
     }
 
     @Override
-    public void setPadding( RecyclerView rv, @Px int marginTop, @Px int marginBottom, @Px int marginLeft, @Px int marginRight ){
-        super.setPadding(rv, marginTop, marginBottom, marginLeft, marginRight );
+    public void setPadding( RecyclerView rv, @Px int top, @Px int bottom, @Px int left, @Px int right ){
+        super.setPadding(rv, top, bottom, left, right );
     }
 
     @Override

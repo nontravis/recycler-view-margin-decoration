@@ -12,7 +12,7 @@ ext {
     siteUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration'
     gitUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration.git'
 
-    libraryVersion = '1.1.0'
+    libraryVersion = '1.1.1'
 
     developerId = 'nonthawit'
     developerName = 'Nonthawit Doungsodsri'
@@ -31,7 +31,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.1.0"
+        versionName "1.1.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
