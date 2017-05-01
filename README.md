@@ -5,6 +5,11 @@
 
 A library for add margin each item in RecyclerView.
 
+## 「 DEMO APPLICATION 」
+
+<a href="" target="_blank">
+<img src="https://storage.googleapis.com/support-kms-prod/D90D94331E54D2005CC8CEE352FF98ECF639" height="60" width="200">
+</a>
 
 ## 「 Installation 」
 
@@ -13,14 +18,14 @@ Maven
 <dependency>
   <groupId>com.github.thekhaeng</groupId>
   <artifactId>recycler-margin</artifactId>
-  <version>1.0.1</version>
+  <version>1.1.1</version>
   <type>pom</type>
 </dependency>
 ```
 
 Gradle
 ```gradle
-compile ('com.github.thekhaeng:recycler-margin:1.0.1') {
+compile ('com.github.thekhaeng:recycler-margin:1.1.1') {
     exclude group: 'com.android.support', module: 'recyclerview-v7'
 }
 ```
@@ -33,7 +38,7 @@ recyclerView.addItemDecoration( new LinearLayoutMargin( spaceInPx ) );
 
 or
 
-recyclerView.addItemDecoration( new DefaultLayoutMargin( 1, spaceInPx, true ) );
+recyclerView.addItemDecoration( new DefaultLayoutMargin( 1, spaceInPx ) );
 ```
 
 ### For GridLayoutManager
@@ -42,7 +47,7 @@ recyclerView.addItemDecoration( new GridLayoutMargin( yourSpan, spaceInPx ) );
 
 or
 
-recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx, true ) );
+recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx ) );
 ```
 
 ### For StaggeredGridLayoutManager
@@ -51,7 +56,44 @@ recyclerView.addItemDecoration( new StaggeredGridLayoutMargin( yourSpan, spaceIn
 
 or
 
-recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx, true ) );
+recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx ) );
+```
+
+### Set padding
+
+```java
+GridLayoutMargin  gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
+
+gridMargin.setPadding(recyclerView, top, bottom, left, right );
+
+or
+
+gridMargin.setPadding(recyclerView, padding );
+```
+
+or use **xml**
+
+```xml
+<android.support.v7.widget.RecyclerView
+    ...
+    android:clipToPadding="false"
+    android:scrollbarStyle="outsideOverlay"
+    ...
+    />
+```
+
+
+
+### Click listener
+```java
+LinearLayoutMargin linearMargin = new LinearLayoutMargin( spaceInPx );
+
+linearMargin.setOnClickLayoutMarginItemListener( new OnClickLayoutMarginItemListener(){
+     @Override
+     public void onClick( Context context, View v, int position, int spanIndex, RecyclerView.State state ){
+         Toast.makeText( context, "item: " + position + "\ncolumn: " + spanIndex, Toast.LENGTH_SHORT ).show();
+     }
+);
 ```
 
 
