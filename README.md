@@ -7,7 +7,7 @@ A library for add margin each item in RecyclerView.
 
 ## 「 DEMO APPLICATION 」
 
-<a href="" target="_blank">
+<a href="https://play.google.com/store/apps/details?id=com.thekhaeng.recyclerviewmargindecoration" target="_blank">
 <img src="https://storage.googleapis.com/support-kms-prod/D90D94331E54D2005CC8CEE352FF98ECF639" height="60" width="200">
 </a>
 
@@ -62,7 +62,7 @@ recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx ) )
 ### Set padding
 
 ```java
-GridLayoutMargin  gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
+GridLayoutMargin gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
 
 gridMargin.setPadding(recyclerView, top, bottom, left, right );
 
@@ -76,12 +76,12 @@ or use **xml**
 ```xml
 <android.support.v7.widget.RecyclerView
     ...
+    android:padding="16dp"
     android:clipToPadding="false"
     android:scrollbarStyle="outsideOverlay"
     ...
     />
 ```
-
 
 
 ### Click listener
