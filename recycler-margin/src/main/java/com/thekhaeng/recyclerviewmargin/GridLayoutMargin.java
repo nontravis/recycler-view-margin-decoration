@@ -19,12 +19,12 @@ public class GridLayoutMargin extends BaseLayoutMargin{
 
     @Override
     public void setPadding( RecyclerView rv, @Px int margin ){
-        super.setPadding(rv, margin );
+        super.setPadding( rv, margin );
     }
 
     @Override
     public void setPadding( RecyclerView rv, @Px int top, @Px int bottom, @Px int left, @Px int right ){
-        super.setPadding(rv, top, bottom, left, right );
+        super.setPadding( rv, top, bottom, left, right );
     }
 
     @Override
@@ -39,7 +39,9 @@ public class GridLayoutMargin extends BaseLayoutMargin{
             GridLayoutManager.LayoutParams lp = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             int position = parent.getChildAdapterPosition( view );
             int spanCurrent = lp.getSpanIndex();
-            calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
+            int orientation = ( (GridLayoutManager) parent.getLayoutManager() ).getOrientation();
+            boolean isInverse = ( (GridLayoutManager) parent.getLayoutManager() ).getReverseLayout();
+            calculateMargin( outRect, position, spanCurrent, state.getItemCount(), orientation, isInverse );
             setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
         }else{
             throw new RuntimeException( "Parent view is not GridLayoutManager." );

@@ -39,7 +39,9 @@ public class StaggeredGridLayoutMargin extends BaseLayoutMargin{
             StaggeredGridLayoutManager.LayoutParams lp = (StaggeredGridLayoutManager.LayoutParams) view.getLayoutParams();
             int position = parent.getChildAdapterPosition( view );
             final int spanCurrent = lp.getSpanIndex();
-            calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
+            int orientation = ( (StaggeredGridLayoutManager) parent.getLayoutManager() ).getOrientation();
+            boolean isInverse = ( (StaggeredGridLayoutManager) parent.getLayoutManager() ).getReverseLayout();
+            calculateMargin( outRect, position, spanCurrent, state.getItemCount(), orientation, isInverse );
             setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
         }else{
             throw new RuntimeException( "Parent view is not StaggeredGridLayoutManager." );

@@ -18,14 +18,14 @@ Maven
 <dependency>
   <groupId>com.github.thekhaeng</groupId>
   <artifactId>recycler-margin</artifactId>
-  <version>1.1.1</version>
+  <version>1.1.2</version>
   <type>pom</type>
 </dependency>
 ```
 
 Gradle
 ```gradle
-compile ('com.github.thekhaeng:recycler-margin:1.1.1') {
+compile ('com.github.thekhaeng:recycler-margin:1.1.2') {
     exclude group: 'com.android.support', module: 'recyclerview-v7'
 }
 ```

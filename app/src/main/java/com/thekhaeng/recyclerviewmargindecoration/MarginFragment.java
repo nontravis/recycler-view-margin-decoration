@@ -71,9 +71,9 @@ public class MarginFragment extends Fragment{
         int layout = getArguments().getInt( KEY_LAYOUT );
         if( layout == LINEAR ){
             rvMargin.removeItemDecoration( linearMargin );
-            rvMargin.setLayoutManager( new LinearLayoutManager( getContext() ) );
+            rvMargin.setLayoutManager( new LinearLayoutManager( getContext(), LinearLayoutManager.VERTICAL, false ) );
             linearMargin = new LinearLayoutMargin( itemSpace );
-            linearMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            linearMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             linearMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( linearMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( 1, itemSpace );
@@ -82,9 +82,9 @@ public class MarginFragment extends Fragment{
         }else if( layout == GRID ){
             int gridSpan = 3;
             rvMargin.removeItemDecoration( gridMargin );
-            rvMargin.setLayoutManager( new GridLayoutManager( getContext(), gridSpan ) );
+            rvMargin.setLayoutManager( new GridLayoutManager( getContext(), gridSpan, GridLayoutManager.VERTICAL, false ) );
             gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
-            gridMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            gridMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             gridMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( gridMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( gridSpan, itemSpace );
@@ -95,7 +95,7 @@ public class MarginFragment extends Fragment{
             rvMargin.removeItemDecoration( stagMargin );
             rvMargin.setLayoutManager( new StaggeredGridLayoutManager( stagSpan, StaggeredGridLayoutManager.VERTICAL ) );
             stagMargin = new StaggeredGridLayoutMargin( stagSpan, itemSpace );
-            stagMargin.setPadding(rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
+            stagMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             stagMargin.setOnClickLayoutMarginItemListener( onClickItem() );
             rvMargin.addItemDecoration( stagMargin );
 //            DefaultLayoutMargin linearMargin = new DefaultLayoutMargin( stagSpan, itemSpace );

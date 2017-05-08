@@ -31,7 +31,7 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
     }
 
     void setPadding( RecyclerView rv, @Px int margin ){
-        this.setPadding(rv, margin, margin, margin, margin );
+        this.setPadding( rv, margin, margin, margin, margin );
     }
 
     void setPadding( RecyclerView rv,
@@ -48,8 +48,8 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
         return marginDelegate;
     }
 
-    void calculateMargin( Rect outRect, int position, int spanCurrent, int itemCount ){
-        marginDelegate.calculateMargin( outRect, position, spanCurrent, itemCount );
+    void calculateMargin( Rect outRect, int position, int spanCurrent, int itemCount, int orientation, boolean isReverse ){
+        marginDelegate.calculateMargin( outRect, position, spanCurrent, itemCount, orientation, isReverse );
     }
 
     public int getSpacing(){

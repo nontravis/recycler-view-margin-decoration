@@ -19,12 +19,12 @@ public class LinearLayoutMargin extends BaseLayoutMargin{
 
     @Override
     public void setPadding( RecyclerView rv, @Px int padding ){
-        super.setPadding(rv, padding );
+        super.setPadding( rv, padding );
     }
 
     @Override
     public void setPadding( RecyclerView rv, @Px int top, @Px int bottom, @Px int left, @Px int right ){
-        super.setPadding(rv, top, bottom, left, right );
+        super.setPadding( rv, top, bottom, left, right );
     }
 
     @Override
@@ -39,7 +39,9 @@ public class LinearLayoutMargin extends BaseLayoutMargin{
             int position = parent.getChildAdapterPosition( view ); // item position
             int spanCurrent = 0;
             setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
-            calculateMargin( outRect, position, spanCurrent, state.getItemCount() );
+            int orientation = ( (LinearLayoutManager) parent.getLayoutManager() ).getOrientation();
+            boolean isInverse = ( (LinearLayoutManager) parent.getLayoutManager() ).getReverseLayout();
+            calculateMargin( outRect, position, spanCurrent, state.getItemCount(), orientation, isInverse );
         }else{
             throw new RuntimeException( "Parent view is not LinearLayoutManager." );
         }
