@@ -44,6 +44,7 @@ public class MarginStateButton extends AppCompatButton{
     private int currentIndex = 2;
     private int position;
     private OnClickMarginStateButtonListener listener;
+    private boolean isNoPosition = false;
 
     public interface OnClickMarginStateButtonListener{
         void onClick();
@@ -90,7 +91,7 @@ public class MarginStateButton extends AppCompatButton{
         init();
     }
 
-    public void setOnClickMarginStateButtonListener( OnClickMarginStateButtonListener listener){
+    public void setOnClickMarginStateButtonListener( OnClickMarginStateButtonListener listener ){
         this.listener = listener;
     }
 
@@ -103,7 +104,11 @@ public class MarginStateButton extends AppCompatButton{
     }
 
     private void setText( @StringRes int idString, @StringRes int dpString ){
-        setText( getString( idString ) + " " + getString( dpString ) );
+        if( isNoPosition ){
+            setText( getString( dpString ) );
+        }else{
+            setText( getString( idString ) + " " + getString( dpString ) );
+        }
     }
 
     private String getString( @StringRes int id ){
@@ -116,6 +121,11 @@ public class MarginStateButton extends AppCompatButton{
 
     private float getMargin( @DimenRes int id ){
         return getContext().getResources().getDimension( id );
+    }
+
+    public void setNoPosition( boolean isNoPosition ){
+        this.isNoPosition = isNoPosition;
+        setText( positionStrings[position], dpStrings[currentIndex] );
     }
 
     private void initWithAttrs( AttributeSet attrs, int defStyleAttr, int defStyleRes ){
@@ -161,6 +171,7 @@ public class MarginStateButton extends AppCompatButton{
             this.currentIndex = in.readInt();
             this.position = in.readInt();
         }
+
         @Override
         public void writeToParcel( Parcel out, int flags ){
             super.writeToParcel( out, flags );

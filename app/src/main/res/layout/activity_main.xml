@@ -86,7 +86,7 @@
             android:layout_height="match_parent"
             android:layout_margin="@dimen/button_margin"
             android:layout_weight="1"
-            android:text="top 16 dp"/>
+            android:text="16 dp"/>
 
     </LinearLayout>
 

@@ -18,14 +18,14 @@ Maven
 <dependency>
   <groupId>com.github.thekhaeng</groupId>
   <artifactId>recycler-margin</artifactId>
-  <version>1.1.2</version>
+  <version>1.2.0</version>
   <type>pom</type>
 </dependency>
 ```
 
 Gradle
 ```gradle
-compile ('com.github.thekhaeng:recycler-margin:1.1.2') {
+compile ('com.github.thekhaeng:recycler-margin:1.2.0') {
     exclude group: 'com.android.support', module: 'recyclerview-v7'
 }
 ```
@@ -34,41 +34,29 @@ compile ('com.github.thekhaeng:recycler-margin:1.1.2') {
 
 ### For LinearLayoutManager
 ```java
-recyclerView.addItemDecoration( new LinearLayoutMargin( spaceInPx ) );
-
-or
-
-recyclerView.addItemDecoration( new DefaultLayoutMargin( 1, spaceInPx ) );
+recyclerView.addItemDecoration( new LayoutMarginDecoration( 1, spaceInPx ) );
 ```
 
 ### For GridLayoutManager
 ```java
-recyclerView.addItemDecoration( new GridLayoutMargin( yourSpan, spaceInPx ) );
-
-or
-
-recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx ) );
+recyclerView.addItemDecoration( new LayoutMarginDecoration( yourColumn, spaceInPx ) );
 ```
 
 ### For StaggeredGridLayoutManager
 ```java
-recyclerView.addItemDecoration( new StaggeredGridLayoutMargin( yourSpan, spaceInPx ) );
-
-or
-
-recyclerView.addItemDecoration( new DefaultLayoutMargin( yourSpan, spaceInPx ) );
+recyclerView.addItemDecoration( new LayoutMarginDecoration( yourColumn, spaceInPx ) );
 ```
 
 ### Set padding
 
 ```java
-GridLayoutMargin gridMargin = new GridLayoutMargin( gridSpan, itemSpace );
+LayoutMarginDecoration layoutMargin = new LayoutMarginDecoration( gridSpan, itemSpace );
 
-gridMargin.setPadding(recyclerView, top, bottom, left, right );
+layoutMargin.setPadding(recyclerView, top, bottom, left, right );
 
 or
 
-gridMargin.setPadding(recyclerView, padding );
+layoutMargin.setPadding(recyclerView, padding );
 ```
 
 or use **xml**
@@ -86,9 +74,9 @@ or use **xml**
 
 ### Click listener
 ```java
-LinearLayoutMargin linearMargin = new LinearLayoutMargin( spaceInPx );
+LayoutMarginDecoration layoutMargin = new LayoutMarginDecoration( spaceInPx );
 
-linearMargin.setOnClickLayoutMarginItemListener( new OnClickLayoutMarginItemListener(){
+layoutMargin.setOnClickLayoutMarginDecorationItemListener( new OnClickLayoutMarginDecorationItemListener(){
      @Override
      public void onClick( Context context, View v, int position, int spanIndex, RecyclerView.State state ){
          Toast.makeText( context, "item: " + position + "\ncolumn: " + spanIndex, Toast.LENGTH_SHORT ).show();

@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity{
         btnStart = (MarginStateButton) findViewById( R.id.btn_start );
         btnEnd = (MarginStateButton) findViewById( R.id.btn_end );
         btnSpace = (MarginStateButton) findViewById( R.id.btn_space );
+        btnSpace.setNoPosition( true );
         ViewPager rvContainer = (ViewPager) findViewById( R.id.container );
         TabLayout tabLayout = (TabLayout) findViewById( R.id.tabs );
 

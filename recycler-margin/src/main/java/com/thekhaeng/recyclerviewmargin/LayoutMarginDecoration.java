@@ -13,9 +13,13 @@ import android.view.View;
  * Created by thekhaeng on 4/6/2017 AD.
  */
 
-public class DefaultLayoutMargin extends BaseLayoutMargin{
+public class LayoutMarginDecoration extends BaseLayoutMargin{
 
-    public DefaultLayoutMargin( int spanCount, @Px int spacing ){
+    public LayoutMarginDecoration( @Px int spacing ){
+        super( 1, spacing );
+    }
+
+    public LayoutMarginDecoration( int spanCount, @Px int spacing ){
         super( spanCount, spacing );
     }
 
