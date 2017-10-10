@@ -23,7 +23,8 @@ class MarginDelegate{
                           int spanCurrent,
                           int itemCount,
                           @IntRange( from = 0, to = 1 ) int orientation,
-                          boolean isReverse ){
+                          boolean isReverse,
+                          boolean isRTL ){
         if( orientation == OrientationHelper.VERTICAL ){
             outRect.left = spanCurrent * spaceItem / spanCount;
             outRect.right = spaceItem - ( spanCurrent + 1 ) * spaceItem / spanCount;

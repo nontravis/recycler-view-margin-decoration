@@ -1,6 +1,7 @@
 package com.thekhaeng.recyclerviewmargindecoration;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -64,12 +65,27 @@ public class MarginFragment extends Fragment{
 
     @SuppressWarnings( "UnusedParameters" )
     private void initInstance( View rootView ){
+        int orientation = getResources().getConfiguration().orientation;
+        int orientationLinear;
+        int orientationGrid;
+        int orientationStaggeredGrid;
+        if( orientation == Configuration.ORIENTATION_PORTRAIT ){
+            orientationLinear = LinearLayoutManager.VERTICAL;
+            orientationGrid = GridLayoutManager.VERTICAL;
+            orientationStaggeredGrid = StaggeredGridLayoutManager.VERTICAL;
+        }else{
+            orientationLinear = LinearLayoutManager.HORIZONTAL;
+            orientationGrid = GridLayoutManager.HORIZONTAL;
+            orientationStaggeredGrid = StaggeredGridLayoutManager.HORIZONTAL;
+        }
+
         rvMargin = (RecyclerView) rootView.findViewById( R.id.rv_margin );
         int itemSpace = getSpace();
         int layout = getArguments().getInt( KEY_LAYOUT );
         if( layout == LINEAR ){
             rvMargin.removeItemDecoration( linearMargin );
-            rvMargin.setLayoutManager( new LinearLayoutManager( getContext(), LinearLayoutManager.VERTICAL, false ) );
+            LinearLayoutManager layout1 = new LinearLayoutManager( getContext(), orientationLinear, false );
+            rvMargin.setLayoutManager( layout1 );
             linearMargin = new LayoutMarginDecoration( itemSpace );
             linearMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             linearMargin.setOnClickLayoutMarginItemListener( onClickItem() );
@@ -77,7 +93,7 @@ public class MarginFragment extends Fragment{
         }else if( layout == GRID ){
             int gridSpan = 3;
             rvMargin.removeItemDecoration( gridMargin );
-            rvMargin.setLayoutManager( new GridLayoutManager( getContext(), gridSpan, GridLayoutManager.VERTICAL, false ) );
+            rvMargin.setLayoutManager( new GridLayoutManager( getContext(), gridSpan, orientationGrid, false ) );
             gridMargin = new LayoutMarginDecoration( gridSpan, itemSpace );
             gridMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             gridMargin.setOnClickLayoutMarginItemListener( onClickItem() );
@@ -85,7 +101,7 @@ public class MarginFragment extends Fragment{
         }else if( layout == STAGGERED_GRID ){
             int stagSpan = 3;
             rvMargin.removeItemDecoration( stagMargin );
-            rvMargin.setLayoutManager( new StaggeredGridLayoutManager( stagSpan, StaggeredGridLayoutManager.VERTICAL ) );
+            rvMargin.setLayoutManager( new StaggeredGridLayoutManager( stagSpan, orientationStaggeredGrid ) );
             stagMargin = new LayoutMarginDecoration( stagSpan, itemSpace );
             stagMargin.setPadding( rvMargin, getMarginTop(), getMarginBottom(), getMarginLeft(), getMarginRight() );
             stagMargin.setOnClickLayoutMarginItemListener( onClickItem() );

@@ -48,8 +48,8 @@ abstract class BaseLayoutMargin extends RecyclerView.ItemDecoration{
         return marginDelegate;
     }
 
-    void calculateMargin( Rect outRect, int position, int spanCurrent, int itemCount, int orientation, boolean isReverse ){
-        marginDelegate.calculateMargin( outRect, position, spanCurrent, itemCount, orientation, isReverse );
+    void calculateMargin( Rect outRect, int position, int spanCurrent, int itemCount, int orientation, boolean isReverse, boolean isRTL ){
+        marginDelegate.calculateMargin( outRect, position, spanCurrent, itemCount, orientation, isReverse, isRTL );
     }
 
     public int getSpacing(){

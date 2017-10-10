@@ -12,7 +12,7 @@ ext {
     siteUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration'
     gitUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration.git'
 
-    libraryVersion = '1.2.0'
+    libraryVersion = '1.2.1'
 
     developerId = 'nonthawit'
     developerName = 'Nonthawit Doungsodsri'
@@ -24,14 +24,14 @@ ext {
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
-        versionName "1.2.0"
+        versionName "1.2.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -45,7 +45,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:recyclerview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
     testCompile 'junit:junit:4.12'
 }
 

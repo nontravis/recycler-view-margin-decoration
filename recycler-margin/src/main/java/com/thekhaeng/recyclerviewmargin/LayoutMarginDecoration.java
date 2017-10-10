@@ -41,10 +41,13 @@ public class LayoutMarginDecoration extends BaseLayoutMargin{
     @Override
     public void getItemOffsets( Rect outRect, View view, RecyclerView parent, RecyclerView.State state ){
         super.getItemOffsets( outRect, view, parent, state );
-        int position = parent.getChildAdapterPosition( view );
-        int spanCurrent = position % getSpanCount();
+        boolean isRTL = parent.getContext().getResources().getBoolean( R.bool.is_right_to_left );
         int orientation = OrientationHelper.VERTICAL;
         boolean isInverse = false;
+
+        int position = parent.getChildAdapterPosition( view );
+
+        int spanCurrent = position % getSpanCount();
         if( parent.getLayoutManager() instanceof StaggeredGridLayoutManager ){
             orientation = ( (StaggeredGridLayoutManager) parent.getLayoutManager() ).getOrientation();
             isInverse = ( (StaggeredGridLayoutManager) parent.getLayoutManager() ).getReverseLayout();
@@ -55,14 +58,29 @@ public class LayoutMarginDecoration extends BaseLayoutMargin{
             isInverse = ( (GridLayoutManager) parent.getLayoutManager() ).getReverseLayout();
             GridLayoutManager.LayoutParams lp = (GridLayoutManager.LayoutParams) view.getLayoutParams();
             spanCurrent = lp.getSpanIndex();
+            if( isRTL && orientation == OrientationHelper.VERTICAL  ){
+                spanCurrent = getSpanCount() - spanCurrent - 1;
+            }
         }else if( parent.getLayoutManager() instanceof LinearLayoutManager ){
             orientation = ( (LinearLayoutManager) parent.getLayoutManager() ).getOrientation();
             isInverse = ( (LinearLayoutManager) parent.getLayoutManager() ).getReverseLayout();
             position = parent.getChildAdapterPosition( view ); // item position
             spanCurrent = 0;
         }
+
+        if( isRTL && orientation == OrientationHelper.HORIZONTAL ){
+            position = state.getItemCount() - position - 1;
+        }
+
         setupClickLayoutMarginItem( parent.getContext(), view, position, spanCurrent, state );
-        calculateMargin( outRect, position, spanCurrent, state.getItemCount(), orientation, isInverse );
+        calculateMargin(
+                outRect,
+                position,
+                spanCurrent,
+                state.getItemCount(),
+                orientation,
+                isInverse,
+                isRTL );
     }
 
 }
