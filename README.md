@@ -2,6 +2,8 @@
 
 ![alt text](./picture/logo.png)
 
+[![Build Status](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration.svg?branch=master)](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration) [ ![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/recycler-margin/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/recycler-margin/_latestVersion)
+
 
 A library for add margin each item in RecyclerView.
 
