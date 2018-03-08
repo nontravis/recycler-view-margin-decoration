@@ -56,6 +56,8 @@ dependencies {
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
     testCompile 'junit:junit:4.12'
 
-//    compile project(path: ':recycler-margin')
-    compile 'com.github.thekhaeng:recycler-margin:1.2.1-jitpack'
+    compile project(path: ':recycler-margin')
+//    compile 'com.github.thekhaeng:recycler-margin:1.2.1'
+//    compile 'com.github.TheKhaeng:recycler-view-margin-decoration:1.2.1-jitpack'
+
 }
