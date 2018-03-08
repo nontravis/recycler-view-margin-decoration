@@ -58,7 +58,7 @@ dependencies {
 
     compile project(path: ':recycler-margin')
 //    compile 'com.github.thekhaeng:recycler-margin:1.2.1'
-//    compile 'com.github.thekhaeng:recycler-view-margin-decoration:1.2.1-jitpack'
+//    compile 'com.github.thekhaeng:recycler-view-margin-decoration:1.2.1'
 //    compile 'com.github.TheKhaeng:recycler-view-margin-decoration:-SNAPSHOT'
 
 }

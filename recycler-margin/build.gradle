@@ -1,4 +1,7 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = "com.github.thekhaeng"
 
 android {
     compileSdkVersion 27
@@ -25,9 +28,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:27.1.0'
 }
 
-ext{
-    publishedGroupId = 'com.github.thekhaeng'
-}
+//ext{
+//    publishedGroupId = 'com.github.thekhaeng'
+//}
 
-apply from: "$project.rootDir/pushlibrary.gradle"
-apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+//apply from: "$project.rootDir/pushlibrary.gradle"
+//apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
