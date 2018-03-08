@@ -12,32 +12,21 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     signingConfigs {
-        release {
-            storeFile file(KEYSTORE_FILE)
-            storePassword KEYSTORE_PASSWORD
-            keyAlias KEYSTORE_ALIAS
-            keyPassword KEYSTORE_PASSWORD
-        }
-
-        debug {
-            keyAlias 'androiddebugkey'
-            storePassword 'android'
-            keyPassword 'android'
-        }
+//        release {
+//            storeFile file(KEYSTORE_FILE)
+//            storePassword KEYSTORE_PASSWORD
+//            keyAlias KEYSTORE_ALIAS
+//            keyPassword KEYSTORE_PASSWORD
+//        }
     }
 
     buildTypes {
         release {
+//            signingConfig signingConfigs.release
             minifyEnabled true
-            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
 
-        debug {
-            minifyEnabled false
-            signingConfig signingConfigs.debug
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
     }
 }
 
@@ -56,6 +45,6 @@ dependencies {
     compile 'com.hwangjr.rxbus:rxbus:1.0.5'
     testCompile 'junit:junit:4.12'
 
-//    compile project(path: ':recycler-margin')
-    compile 'com.github.thekhaeng:recycler-margin:1.2.1'
+    compile project(path: ':recycler-margin')
+//    compile 'com.github.thekhaeng:recycler-margin:1.2.1'
 }
