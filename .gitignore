@@ -1,5 +1,6 @@
 ### Android ###
 # Built application files
+release/
 *.apk
 *.ap_
 reports/
