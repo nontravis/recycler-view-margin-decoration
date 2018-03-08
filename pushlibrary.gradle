@@ -1,0 +1,28 @@
+ext {
+    bintrayRepo = 'TheKhaeng'
+    bintrayName = 'recycler-margin'
+
+    publishedGroupId = 'com.github.thekhaeng'
+    libraryName = 'RecyclerViewMarginDecoration'
+    artifact = 'recycler-margin'
+
+    libraryDescription = 'A library for add margin each item in RecyclerView.'
+
+    siteUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration'
+    gitUrl = 'https://github.com/TheKhaeng/recycler-view-margin-decoration.git'
+
+    libraryVersion = '1.2.1'
+
+    developerId = 'nonthawit'
+    developerName = 'Nonthawit Doungsodsri'
+    developerEmail = 'nonthawit.thekhaeng@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
+
