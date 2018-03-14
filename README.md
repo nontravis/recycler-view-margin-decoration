@@ -2,7 +2,7 @@
 
 ![alt text](./picture/logo.png)
 
-[![Build Status](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration.svg?branch=master)](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration) [ ![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/recycler-margin/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/recycler-margin/_latestVersion)
+[![Build Status](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration.svg?branch=master)](https://travis-ci.org/TheKhaeng/recycler-view-margin-decoration) [ ![Download](https://api.bintray.com/packages/nonthawit/TheKhaeng/recycler-margin/images/download.svg) ](https://bintray.com/nonthawit/TheKhaeng/recycler-margin/_latestVersion) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-RecyclerView%20Margin%20Decoration-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/6833)
 
 
 A library for add margin each item in RecyclerView.
